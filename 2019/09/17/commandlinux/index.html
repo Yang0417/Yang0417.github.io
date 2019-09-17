@@ -1,4 +1,19 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>commandlinux | 魍魉</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">commandlinux</h1><a id="logo" href="/.">魍魉</a><p class="description">坏人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">commandlinux</h1><div class="post-meta"><a href="/2019/09/17/commandlinux/#comments" class="comment-count"></a><p><span class="date">Sep 17, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h2 id="Linux操作系统常用命令行"><a href="#Linux操作系统常用命令行" class="headerlink" title="Linux操作系统常用命令行"></a>Linux操作系统常用命令行</h2><p>##目录<br>*<a href="#添加执行权限">添加执行权限</a><br>*<a href="#创建与删除目录">创建与删除目录</a><br>*<a href="#重启命令">重启命令</a><br>*<a href="#关机命令">关机命令</a><br>*<a href="#查看IP">查看IP</a><br>*<a href="#切换用户">切换用户</a></p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>commandlinux | 魍魉</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">commandlinux</h1><a id="logo" href="/.">魍魉</a><p class="description">坏人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">commandlinux</h1><div class="post-meta"><a href="/2019/09/17/commandlinux/#comments" class="comment-count"></a><p><span class="date">Sep 17, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h2 id="Linux操作系统常用命令行"><a href="#Linux操作系统常用命令行" class="headerlink" title="Linux操作系统常用命令行"></a>Linux操作系统常用命令行</h2><p>##目录</p>
+<ul>
+<li><a href="#添加执行权限">添加执行权限</a></li>
+<li><a href="#创建与删除目录">创建与删除目录</a></li>
+<li><a href="#重启命令">重启命令</a></li>
+<li><a href="#关机命令">关机命令</a></li>
+<li><a href="#查看IP">查看IP</a></li>
+<li><a href="#切换用户">切换用户</a></li>
+<li><a href="#复制">复制</a></li>
+<li><a href="#查看目录下文件">查看目录下文件</a></li>
+<li><a href="#删除文件">删除文件</a></li>
+<li><a href="#移动文件">移动文件</a></li>
+<li><a href="#输出命令">输出命令</a></li>
+<li><a href="#查看文件内容">查看文件内容</a></li>
+<li><a href="#查看当前所在目录">查看当前所在目录</a></li>
+</ul>
 <p>###添加执行权限</p>
 <hr>
 <p>chmod 777<br>chmod u+x 文件名（可执行权限）</p>
@@ -26,7 +41,7 @@
 <p>###删除文件</p>
 <hr>
 <p>rm -r 文件名（递归删除）<br>rm -f 文件名（强制删除）<br>rm -i 文件名（互动删除，删除时询问）</p>
-<p>###：移动文件</p>
+<p>###移动文件</p>
 <hr>
 <p>mv 文件名<br>mv 旧文件名 新文件名（修改文件名）<br>mv -f 文件名（目标文档存在，不询问，强制覆盖）<br>mv -i 文件名（目标文档存在，询问是否覆盖） </p>
 <p>###输出命令</p>
