@@ -15,34 +15,33 @@
 <li><a href="#查看文件内容">查看文件内容</a></li>
 <li><a href="#查看当前所在目录">查看当前所在目录</a></li>
 </ul>
-<h3 id="添加执行权限"><a href="#添加执行权限" class="headerlink" title="添加执行权限"></a>添加执行权限</h3><hr>
-<p>chmod 777<br>chmod u+x 文件名（可执行权限）</p>
-<h3 id="创建与删除目录"><a href="#创建与删除目录" class="headerlink" title="创建与删除目录"></a>创建与删除目录</h3><hr>
-<p>mkdir  目录名   (只能建一个目录)<br>mkdir -p  test1/test2/test3   (-p表示可以建多级目录)<br>mkdir -m  777  test  (-m表示建立目录时直接加上权限)<br>rmdir 目录名 （删除一个空目录）<br>rmdir -p 目录名 （-p连同上层空目录一起删除）<br>rmdir -r 目录名 （-r目录下所有都删除）</p>
-<h3 id="重启命令"><a href="#重启命令" class="headerlink" title="重启命令"></a>重启命令</h3><hr>
-<p>reboot<br>shutdown -r now 立刻重启(root用户使用)<br>shutdown -r 10 过10分钟自动重启(root用户使用)<br>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)</p>
-<h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><hr>
-<p>halt   立刻关机<br>poweroff  立刻关机<br>shutdown -h now 立刻关机(root用户使用)<br>shutdown -h 10 10分钟后自动关机</p>
-<h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><hr>
-<p>ifconfig</p>
-<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><hr>
-<p>su 用户名<br>sudo 切换超级用户</p>
-<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><hr>
-<p>cp 原文件名 新文件名（复制并重命名）<br>cp -p 文件名（-p连同复制文件的属性）<br>cp -r 文件名（-r递归连续复制）</p>
-<h3 id="查看目录下文件"><a href="#查看目录下文件" class="headerlink" title="查看目录下文件"></a>查看目录下文件</h3><hr>
-<p>ls -l 目录（显示档案的属性和权限）<br>ls -a 目录（显示所有文档，包括隐藏的）<br>ls -R 目录（显示目录下所有内容，包括子目录内容）<br>ls -t 目录（显示按时间排序）<br>ls -S 目录（显示按大小排序）</p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><hr>
-<p>rm -r 文件名（递归删除）<br>rm -f 文件名（强制删除）<br>rm -i 文件名（互动删除，删除时询问）</p>
-<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><hr>
-<p>mv 文件名<br>mv 旧文件名 新文件名（修改文件名）<br>mv -f 文件名（目标文档存在，不询问，强制覆盖）<br>mv -i 文件名（目标文档存在，询问是否覆盖） </p>
-<h3 id="输出命令"><a href="#输出命令" class="headerlink" title="输出命令"></a>输出命令</h3><hr>
-<p>echo</p>
-<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3><hr>
-<p>cat（由第一行显示内容）<br>cat -b （对非空白行列出行号）<br>cat -n （连同空白行列出行号）</p>
+<p>======</p>
+<h3 id="添加执行权限"><a href="#添加执行权限" class="headerlink" title="添加执行权限"></a>添加执行权限</h3><p>chmod 777<br>chmod u+x 文件名（可执行权限）</p>
+<hr>
+<h3 id="创建与删除目录"><a href="#创建与删除目录" class="headerlink" title="创建与删除目录"></a>创建与删除目录</h3><p>mkdir  目录名   (只能建一个目录)<br>mkdir -p  test1/test2/test3   (-p表示可以建多级目录)<br>mkdir -m  777  test  (-m表示建立目录时直接加上权限)<br>rmdir 目录名 （删除一个空目录）<br>rmdir -p 目录名 （-p连同上层空目录一起删除）<br>rmdir -r 目录名 （-r目录下所有都删除）</p>
+<hr>
+<h3 id="重启命令"><a href="#重启命令" class="headerlink" title="重启命令"></a>重启命令</h3><p>reboot<br>shutdown -r now 立刻重启(root用户使用)<br>shutdown -r 10 过10分钟自动重启(root用户使用)<br>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)</p>
+<hr>
+<h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>halt   立刻关机<br>poweroff  立刻关机<br>shutdown -h now 立刻关机(root用户使用)<br>shutdown -h 10 10分钟后自动关机</p>
+<hr>
+<h3 id="查看IP"><a href="#查看IP" class="headerlink" title="查看IP"></a>查看IP</h3><p>ifconfig</p>
+<hr>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p>su 用户名<br>sudo 切换超级用户</p>
+<hr>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>cp 原文件名 新文件名（复制并重命名）<br>cp -p 文件名（-p连同复制文件的属性）<br>cp -r 文件名（-r递归连续复制）</p>
+<hr>
+<h3 id="查看目录下文件"><a href="#查看目录下文件" class="headerlink" title="查看目录下文件"></a>查看目录下文件</h3><p>ls -l 目录（显示档案的属性和权限）<br>ls -a 目录（显示所有文档，包括隐藏的）<br>ls -R 目录（显示目录下所有内容，包括子目录内容）<br>ls -t 目录（显示按时间排序）<br>ls -S 目录（显示按大小排序）</p>
+<hr>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>rm -r 文件名（递归删除）<br>rm -f 文件名（强制删除）<br>rm -i 文件名（互动删除，删除时询问）</p>
+<hr>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p>mv 文件名<br>mv 旧文件名 新文件名（修改文件名）<br>mv -f 文件名（目标文档存在，不询问，强制覆盖）<br>mv -i 文件名（目标文档存在，询问是否覆盖） </p>
+<hr>
+<h3 id="输出命令"><a href="#输出命令" class="headerlink" title="输出命令"></a>输出命令</h3><p>echo</p>
+<hr>
+<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3><p>cat（由第一行显示内容）<br>cat -b （对非空白行列出行号）<br>cat -n （连同空白行列出行号）</p>
 <p>tac （由最后一行显示内容）</p>
 <p>head （只看前几行）<br>head -n 20 （显示前20行）<br>head -n -20 （除了后20行全部显示）</p>
 <p>tail （只看后几行）<br>tail -n 20（显示后20行）</p>
-<h3 id="查看当前所在目录"><a href="#查看当前所在目录" class="headerlink" title="查看当前所在目录"></a>查看当前所在目录</h3><hr>
-<p>pwd</p>
-<p>=======</p>
+<hr>
+<h3 id="查看当前所在目录"><a href="#查看当前所在目录" class="headerlink" title="查看当前所在目录"></a>查看当前所在目录</h3><p>pwd</p>
 </div><div class="post-copyright"><blockquote><p>原文作者: Yang</p><p>原文链接: <a href="http://yoursite.com/2019/09/17/commandlinux/">http://yoursite.com/2019/09/17/commandlinux/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/Linux/">Linux</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/09/16/MarkdownRule/" class="next">MarkdownRule</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加执行权限"><span class="toc-text">添加执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与删除目录"><span class="toc-text">创建与删除目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启命令"><span class="toc-text">重启命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关机命令"><span class="toc-text">关机命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看IP"><span class="toc-text">查看IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换用户"><span class="toc-text">切换用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制"><span class="toc-text">复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看目录下文件"><span class="toc-text">查看目录下文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动文件"><span class="toc-text">移动文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出命令"><span class="toc-text">输出命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看文件内容"><span class="toc-text">查看文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看当前所在目录"><span class="toc-text">查看当前所在目录</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/17/commandlinux/">commandlinux</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/16/MarkdownRule/">MarkdownRule</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/shici/">诗词1</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/文学/" style="font-size: 15px;">文学</a> <a href="/tags/md语法/" style="font-size: 15px;">md语法</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Yang.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
