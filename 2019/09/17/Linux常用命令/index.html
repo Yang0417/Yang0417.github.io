@@ -16,7 +16,7 @@
 <li><a href="#查看文件内容">查看文件内容</a></li>
 <li><a href="#查看当前所在目录">查看当前所在目录</a></li>
 </ul>
-<p>======</p>
+<hr>
 <h3 id="添加执行权限"><a href="#添加执行权限" class="headerlink" title="添加执行权限"></a>添加执行权限</h3><p>chmod 777 文件或目录（rwx分别代表数字421，rwxrwxrwx代表777即所有用户可读可写可执行）<br>chmod u=rwx，g=rwx，o=rwx 文件名（user自己权限，group同群组用户权限，other其他用户权限，=设定，+添加，-去除）</p>
 <hr>
 <h3 id="创建与删除目录"><a href="#创建与删除目录" class="headerlink" title="创建与删除目录"></a>创建与删除目录</h3><p>mkdir  目录名   (只能建一个目录)<br>mkdir -p  test1/test2/test3   (-p表示可以建多级目录)<br>mkdir -m  777  test  (-m表示建立目录时直接加上权限)<br>rmdir 目录名 （删除一个空目录）<br>rmdir -p 目录名 （-p连同上层空目录一起删除）<br>rmdir -r 目录名 （-r目录下所有都删除）</p>
