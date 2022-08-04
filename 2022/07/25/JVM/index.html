@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="blog"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>JVM | 魍魉</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JVM</h1><a id="logo" href="/.">魍魉</a><p class="description">坏人</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">JVM</h1><div class="post-meta"><a href="/2022/07/25/JVM/#comments" class="comment-count"></a><p><span class="date">Jul 25, 2022</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>JVM是Java Virtual Machine的缩写。它是一种基于计算设备的规范，是一台虚拟机，即虚构的计算机。JVM屏蔽了与具体操作系统平台相关的信息，使得Java程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。</p>
+<hr>
+<h2 id="java文件编译执行过程"><a href="#java文件编译执行过程" class="headerlink" title="java文件编译执行过程"></a>java文件编译执行过程</h2><p>java文件(.java) –javac编译–&gt; 字节码文件(.class) –类加载器(classloader)–&gt; JVM解释执行</p>
+<hr>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><ol>
+<li>启动类加载器 <code>Bootstarp ClassLoader</code></li>
+<li>扩展类加载器 <code>ExtClassLoader</code></li>
+<li>应用类加载器 <code>AppClassLoader</code></li>
+<li>自定义类加载器 <code>User ClassLoader</code></li>
+</ol>
+<p>双亲委派机制：当类加载器收到加载类的请求时，会先提交给父加载器，父加载器继续向其父加载器传递，最终传到顶层启动类加载器。若父加载器能加载该类，则成功返回，否则才由子加载器加载。</p>
+<hr>
+<h2 id="JVM运行时数据区"><a href="#JVM运行时数据区" class="headerlink" title="JVM运行时数据区"></a>JVM运行时数据区</h2><ol>
+<li>方法区(method area)</li>
+</ol>
+<p>又称<code>非堆(non-heap)</code>，所有线程的<code>共享内存</code>，存储已被Java虚拟机加载的类信息(构造方法、接口定义)、常量(final)、静态变量(static)、即时编译器编译后的代码等数据。<br>    注：方法区是堆上的一个概念，具体的落地实现是<code>永久代(PermGen)</code>或者<code>元空间(MetaSpace)</code>，它们都统称方法区。元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代最大的区别在于：<code>元空间不在虚拟机设置的内存中，而是使用本地内存</code>。</p>
+<ol start="2">
+<li>堆(heap)</li>
+</ol>
+<p>最大的一块内存空间，主要用于存放对象实例。堆内存又分为：</p>
+<ul>
+<li><p>新生区</p>
+<ul>
+<li>伊甸园区(刚new出来的对象实例都在伊甸园区)</li>
+<li>幸存0区、幸存1区(0区与1区动态轮换，当新建的对象多次轮换后会移动到老年区，默认经历15次GC)</li>
+</ul>
+</li>
+<li><p>老年区</p>
+</li>
+<li><p>永久区/元空间(常驻内存。用来存放JDK自带的Class对象，interface元数据，存储的是java运行时的一些环境。这个区域不存在垃圾回收)<br>  注：PermGen space是JDK7及之前，HotSpot虚拟机对<code>方法区</code>的一个落地实现，在JDK8被移除。<br>  Metaspace(元空间)是JDK8及之后，HotSpot虚拟机对<code>方法区</code>的新的实现。</p>
+</li>
+</ul>
+<p>GC垃圾回收主要在伊甸园区和老年区。</p>
+<ol start="3">
+<li>栈(stack)</li>
+</ol>
+<p>线程的<code>私有内存</code>，生命周期与线程相同，用于存放局部变量表、操作数栈、动态链接、方法出口等信息(8种基本数据类型+对象引用+实例的方法)。<br>栈运行的原理：栈帧(stackframe)</p>
+<ol start="4">
+<li>程序计数器(program counter) </li>
+</ol>
+<p>一块较小的内存空间，用于保存当前线程所正在执行的字节码指令的地址(行号)。</p>
+<ol start="5">
+<li>本地方法栈(native method stack)</li>
+</ol>
+<p>native关键字修饰的方法，存放的一般是C、C++代码</p>
+<hr>
+<h2 id="内存溢出-OOM"><a href="#内存溢出-OOM" class="headerlink" title="内存溢出(OOM)"></a>内存溢出(OOM)</h2><ol>
+<li>扩大堆内存看结果</li>
+</ol>
+<p><code>-Xms1024m -Xmx1024m -XX:+PrintGCDetails</code></p>
+<p>命令行作用:设置堆可占用最大内存为1024MB，堆的初始化内存为1024MB，打印垃圾回收器GC相关信息</p>
+<ol start="2">
+<li>分析内存，找出问题(内存快照分析工具MAT、Jprofile)</li>
+</ol>
+<hr>
+<h2 id="GC垃圾回收"><a href="#GC垃圾回收" class="headerlink" title="GC垃圾回收"></a>GC垃圾回收</h2><p>JVM在进行GC时，大部分时间都是在新生区。</p>
+<p>GC种类：</p>
+<ul>
+<li>Young GC(新生代GC)<br>对象优先在新生区的Eden区中分配，如果Eden区没有足够的空间，就会触发一次Young GC。</li>
+<li>Full GC(老年代GC)<br>调用System.gc()方法会触发Full GC，不过此方法不建议使用。<br>当新生代的Survivor区不够用时，会触发分配担保机制，将多出的对象提前转移到老年代，若老年代的可用内存不够，则会触发一次Full GC。</li>
+</ul>
+<p>GC算法：</p>
+<ol>
+<li>引用计数法<br> 给每个对象设置一个引用计数器，每当有一个地方引用它时，计数器就会加1；当引用失效时，计数器的值就会减1；计数器的值为0的对象就是不可能再被使用的。<br> 该方法在Java中并未被使用，python中有使用。<br>优点：可即时回收垃圾。<br>缺点：实现繁琐，且计数器也要消耗一定内存。</li>
+<li>标记-清除法<br> 分为标记和清除两个阶段。标记就是把所有存活对象都做上标记的阶段；清除就是将没有做上标记的对象进行回收的阶段。<br>优点：实现简单，不需要额外空间。<br>缺点：两次扫描浪费时间，内存碎片化。</li>
+<li>标记-压缩法<br> 与标记-清除类似，防止内存碎片产生，扫描过程中把存活的对象移动到一端。<br>优点：可以有效的利用堆。<br>缺点：压缩需要花比较多的时间成本。</li>
+<li>复制算法<br> 复制算法就是将内存空间按容量分成两块。当一块内存用完的时候，就将还存活着的对象复制到另外一块上面，然后把已经使用过的这一块内存一次清理掉。<br> 最佳使用场景：对象存活度较低的时候，及新生区。<br>优点：吞吐量大，内存不会碎片化。<br>缺点：浪费一半的空间，堆内存使用效率低。</li>
+</ol>
+<p>垃圾回收机的实现不是仅仅用哪一种回收算法，而是将几个结合使用，即<code>分代收集算法</code>(年轻代存活率低，复制算法；老年区存活率高，区域大，标记-清除法(内存碎片少)和标记-压缩法混合使用)。</p>
+</div><div class="tags"><a href="/tags/JVM/">JVM</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2022/07/25/线程/" class="pre">线程</a><a href="/2022/07/23/排序算法/" class="next">排序算法</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java文件编译执行过程"><span class="toc-text">java文件编译执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器"><span class="toc-text">类加载器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM运行时数据区"><span class="toc-text">JVM运行时数据区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存溢出-OOM"><span class="toc-text">内存溢出(OOM)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC垃圾回收"><span class="toc-text">GC垃圾回收</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/07/25/线程/">线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/25/JVM/">JVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/16/Regex/">Regex</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/15/Java反射/">Java反射</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Hexo命令/">Hexo命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/18/操作系统引论/">操作系统引论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/17/Linux常用命令/">Linux操作系统常用命令行</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/16/Markdown语法/">Markdown语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/诗词/">诗词</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/JVM/" style="font-size: 15px;">JVM</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/线程/" style="font-size: 15px;">线程</a> <a href="/tags/文学/" style="font-size: 15px;">文学</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/regex/" style="font-size: 15px;">regex</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/操作系统/" style="font-size: 15px;">操作系统</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="null" title="没有" target="_blank">没有</a><ul></ul><a href="null" title="就是没有" target="_blank">就是没有</a><ul></ul><a href="http://www.google.com/" title="去Google啥都有" target="_blank">去Google啥都有</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Yang.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
